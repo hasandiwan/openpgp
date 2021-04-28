@@ -1,0 +1,5 @@
+require 'fakeweb'
+sign_json = <<-JSON
+{"text": "Hello world", "signed": "-----BEGIN PGP SIGNED MESSAGE-----\nHash: SHA256\n\nHello world\n-----BEGIN PGP SIGNATURE-----\n\niQIzBAEBCAAdFiEENROx5p50mTOovE9CwtUpwKaR7fcFAmCIXukACgkQwtUpwKaR\n7ferSRAAht3+GAH/pcq3+4BqBu/32uEoVMmp96LAFWtTf/1+IlAnUi33oj/rRvMO\nwGL8+sSI22QI39oucP2GKwUUV1Vb6qTPNXxTwv5ibS8nIz7+mrXi6U1yRuKS0/Vc\nO0c78QNAUQdbzccrPisEA+n9sI3P6d90HIoCC9Z7+O4/lC8D/h0Y0PUTXLPyTRgn\nz+N6ryEs4+a6+UfCMcod3FDl3tqJHePhnW2cmYkLgx56fLlk+Q7xN2qO/bU5pIm2\nZShnRqpT6yqQ2VDp0+czDNnmhn8q+eM0lJgjb+gG18+zEI3nxxVCI6GXbBPaYmJG\nbVtb7dZ6BEVv/M89YlHqiP7+OAFx8cR6QJfXKqu6ja8sMOevGmjcdLSluw3+pQvb\nBDELoRjsqylaXdfpR6R5ZLnSGrVE1ki7b/N/uKujmnMiMeupWx3+F8hRXDv4SKGG\nyv4RUgRuu51yWZF7glLFgwl4PwGDiMfsKMcBmc1cZiIo6WOUCP0HkO3CSxdCnqjA\nBbfhAcmph4N4ygcmioSIDUxpQScm8wynxt1o9wJtbkDJekM2w7Dqq+9s7PSNA+/n\nU197iTGdfsH++GKV/e20KWngQC1YFCuH/TsQ91g/7ROMqtz2TxearozNC+ivFTne\nptN9qhiJ4MhOXs8Q5ZGvy34NwJE1aIkn6MpzyjHmJrcNFf61jr0=\n=BpAx\n-----END PGP SIGNATURE-----\n"}
+JSON
+FakeWeb.register_uri(:post, %r|pgp/sign|, :body => sign_json)
